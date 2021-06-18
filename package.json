@@ -1,0 +1,23 @@
+{
+  "name": "cocbot",
+  "version": "1.0.0",
+  "description": "A bot to verify and access content related to CrenshawKings clan",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://copseyi@bitbucket.org/copseyi/cocbot.git"
+  },
+  "author": "Issayah Copsey",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/copseyi/cocbot#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "discord.js": "^12.5.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0"
+  }
+}
