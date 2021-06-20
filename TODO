@@ -1,0 +1,5 @@
+Player joins - gets placed into a wait room. 
+Player responds with reaction
+Player gets moved into a player specific room
+Bot tells them how to format the request
+/verify TAG 

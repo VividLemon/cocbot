@@ -15,7 +15,8 @@
   "homepage": "https://bitbucket.org/copseyi/cocbot#readme",
   "dependencies": {
     "axios": "^0.21.1",
-    "discord.js": "^12.5.3"
+    "discord.js": "^12.5.3",
+    "keyv": "^4.0.3"
   },
   "devDependencies": {
     "eslint": "^7.28.0"
