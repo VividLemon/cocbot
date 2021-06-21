@@ -1,5 +1,13 @@
-Player joins - gets placed into a wait room. 
-Player responds with reaction
-Player gets moved into a player specific room
-Bot tells them how to format the request
-/verify TAG 
+Add the verification wizard
+
+I think firstMessage contains a bug if there is multiple responses.
+
+add try catches to make sure things don't crash
+
+some more api stuff?
+
+Ryan needs to update the server stuffs. Look pretty
+
+Update bot permissions. No admin
+
+Change nickname for others isn't working
