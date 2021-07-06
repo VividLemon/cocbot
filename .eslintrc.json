@@ -17,6 +17,7 @@
 		"no-irregular-whitespace": [1],
 		"no-trailing-spaces": [1],
 		"no-multiple-empty-lines": [2, {"max": 1}],
-		"newline-after-var": ["warn"]
+		"newline-after-var": ["warn"],
+		"eol-last": ["error", "always"]
 	}
 }

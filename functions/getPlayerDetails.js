@@ -7,4 +7,3 @@ module.exports = (args) => {
         console.log(resp)
     })
 }
-//What is this used for?
