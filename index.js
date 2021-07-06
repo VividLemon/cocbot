@@ -1,18 +1,18 @@
 const Discord = require('discord.js')
-const {prefix, token, clan_tag, coc_api_key} = require('./config/config.json');
+const {prefix, token} = require('./config/config.json');
 const bot = new Discord.Client();
 
-const fs = require('fs');
-const { Client } = require('clashofclans.js');
-const client = new Client({ token: coc_api_key, timeout: 5000})
-const keyv = require('keyv');
+// const fs = require('fs');
+// const { Client } = require('clashofclans.js');
+// const client = new Client({ token: coc_api_key, timeout: 5000})
+// const keyv = require('keyv');
 
 const firstMessage = require('./functions/firstMessage.js');
 const createPrivateChannel = require('./functions/createPrivateChannel.js');
 const verifyClash = require('./functions/verifyClash.js');
-const getPlayerDetails = require('./functions/getPlayerDetails');
-const addRole = require('./functions/addRole');
-const changeNickname = require('./functions/changeNickname');
+// const getPlayerDetails = require('./functions/getPlayerDetails');
+// const addRole = require('./functions/addRole');
+// const changeNickname = require('./functions/changeNickname');
 const getClanWarInfo = require('./functions/getClanWarInfo');
 const getMembersList = require('./functions/getMembersList');
 const donationMessage = require('./functions/donationMessage');

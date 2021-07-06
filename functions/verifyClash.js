@@ -1,4 +1,4 @@
-const {prefix, token, clan_tag, coc_api_key} = require('../config/config.json');
+const {clan_tag, coc_api_key} = require('../config/config.json');
 const { Client } = require('clashofclans.js');
 const addRole = require('./addRole');
 const convertCoCRoleToDiscord = require('./convertCoCRoleToDiscord');
@@ -13,16 +13,27 @@ module.exports = (message, args = []) => {
         // api fetch
         let name;
         let clanRole;
+        let authed = true;
         client.player(tag).then(resp => {
             if(resp.clan.tag !== clan_tag) return message.reply("You don't seem to be in our clan! Join now!");
             name = resp.name;
             clanRole = resp.role;
+        }).catch(() => {
+            authed = false;
+            message.reply("Player tag wasn't found, try again!")
         })
-        .then(resp => {
+        .then(() => {
             client.verifyPlayerToken(tag, token).then(resp => {
                 if(resp.status === 'ok'){
                     addRole(message, "authenticated");
                     const discordRole = convertCoCRoleToDiscord(clanRole);
+                    try{
+                        // if(message.guild.me.permissions.missing('MANAGE_NICKNAMES')) return message.reply("I'm missing permissions to manage nicknames. Sorry!")
+                        if(message.author.id === message.guild.ownerID) throw new Error;
+                        message.member.setNickname(name);
+                    }catch(err){
+                        message.reply(`I'm missing permissions to auto manage your nickname, you are probably the guild owner.\n(If you're not the guild owner, send <@${message.guild.ownerID}> a message with this error)`)
+                    }
                     addRole(message, discordRole);
                     removeRole(message, "unauthenticated");
                     message.reply(`Great! You have been verified! This chat will auto close in ${expireTimeInSeconds} seconds`);
@@ -32,17 +43,14 @@ module.exports = (message, args = []) => {
                         }else{
                             console.warn(`Channel auth-${message.author.id} was probably already deleted...`)
                         }
-                    }, 1000 * expireTimeInSeconds);
-                    
-                }else{
-                    message.reply("That's not right, your api token might be invalid.")
+                    }, 1000 * expireTimeInSeconds);   
+                }else if(resp.status !== 'ok' && authed){
+                    message.reply("Your api token was invalid. Try again.")
                 }
             })
         })
-    }else if(args.length === 1){
+    }else if(args.length === 1 || args.length === 0){
         message.reply("Sorry, but you need *both* the player tag and api token to proceed");
-    }else if(args.length === 0){
-        //TODO create wizard
     }else{
         message.reply("Sorry, but you must have *only* the player tag and api token to proceed");
     }
