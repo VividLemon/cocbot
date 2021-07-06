@@ -1,3 +1,3 @@
 module.exports = (message) => {
-    return message.guild.members.cache.get(message.author.id);
+    return message.guild.members.cache.get(message.author.id)
 }

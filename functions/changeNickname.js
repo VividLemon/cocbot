@@ -1,3 +1,3 @@
 module.exports = (message, name) => {
-    message.member.setNickname(name);
+    message.member.setNickname(name)
 }
