@@ -9,6 +9,9 @@ dist/
 userdata/
 config/
 
+#Eslinter
+.eslintrc.json
+
 # Compiled Java class files
 *.class
 
