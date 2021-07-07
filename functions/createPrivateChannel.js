@@ -38,8 +38,8 @@ module.exports = (reaction, user, bot) => {
 
         // auto delete
         setTimeout(() => {
-            if(reaction.message.guild.channels.cache.get(resp.id)){
-                resp.delete()//TODO
+            if(reaction.message.guild.channels.cache.get(resp.id)) {
+                resp.delete()
             }else{
                 console.warn(`Channel ${resp.id} was probably already deleted...`)
             }

@@ -38,7 +38,7 @@ bot.on('guildMemberAdd', ( member ) => {
 
 bot.on('messageReactionAdd', (reaction, user) => {
     if(user.bot) return
-    if(reaction.message.channel.id === '855560503044472893'){
+    if(reaction.message.channel.id === '855560503044472893') {
         createPrivateChannel(reaction, user, bot)
     }
 })
@@ -48,16 +48,18 @@ bot.on('message', async message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/)
     const command = args.shift().toLowerCase()
 
-    if(command === 'verify'){
+    if(command === 'verify') {
         verifyClash(message, args)
     }
-    else if(command === 'war'){
+    else if(command === 'war') {
         getClanWarInfo(message, args[0])
     }
-    else if(command === 'team'){
+    else if(command === 'team') {
         getMembersList(message, args[0])
     }
-    else if(command === 'donate'){
+    else if(command === 'donate') {
         donationMessage(message)
+    }else if(command === 'ping') {
+        return message.reply('pong')
     }
 })

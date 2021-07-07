@@ -9,13 +9,13 @@ module.exports = (message, perf) => {
         msg = `\`\`\`yaml\n`
         resp.items.forEach(element => {
             msg += `Name: ${element.name}, Level: ${element.expLevel}, Role: ${element.role}`
-            if(perf >= 1){
+            if(perf >= 1) {
                 msg += `\nDonations given: ${element.donations}, Donations received: ${element.donationsReceieved}`
             }
-            if(perf >= 2){
+            if(perf >= 2) {
                 msg += `Trophies: ${element.trophies}`
             }
-            if(perf >= 3){
+            if(perf >= 3) {
                 msg += `League level ${element.league.name}`
             }
             msg += `\n`

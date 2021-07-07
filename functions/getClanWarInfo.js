@@ -7,26 +7,26 @@ module.exports = (message, perf) => {
 
     client.currentClanWar(clan_tag).then(resp => {
         msg = `\`\`\`yaml\nPhase: ${resp.state}, Player Count: ${resp.teamSize}`
-        if(resp.state != 'preparation'){
+        if(resp.state != 'preparation') {
             msg += `\nAttacks Used: ${resp.clan.attacks} out of ${resp.teamSize * 2}`
         }
-        if(perf && perf >= 1){
+        if(perf && perf >= 1) {
             msg += `\nMembers:`
             resp.clan.members.forEach(member => {
                 msg += `\nName: ${member.name}, th level: ${member.townhallLevel}, position: ${member.mapPosition}`
-                if(resp.state != 'preparation'){
+                if(resp.state != 'preparation') {
                     msg += `, attacks used: ${member.opponentAttacks}`
                 }
             })
         }
-        if(perf && perf >= 2){
+        if(perf && perf >= 2) {
             msg += "\n\nEnemies:"
-            if(resp.state != 'preparation'){
+            if(resp.state != 'preparation') {
                 msg += `\nAttacks Used: ${resp.opponent.attacks} out of ${resp.teamSize * 2}`
             }
             resp.opponent.members.forEach(member => {
                 msg += `\nName: ${member.name}, th level: ${member.townhallLevel}, position: ${member.mapPosition}`
-                if(resp.state != 'preparation'){
+                if(resp.state != 'preparation') {
                     msg += `, attacks used: ${member.opponentAttacks}`
                 }
             })
