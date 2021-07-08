@@ -8,8 +8,8 @@
 		"ecmaVersion": 2019
 	},
 	"rules": {
-		"comma-dangle": ["error", "never"],
 		"semi": ["warn", "never"],
+		"comma-dangle": ["error", "never"],
 		"space-before-function-paren": ["error", {
 			"anonymous": "always",
 			"named": "always",
@@ -22,6 +22,8 @@
 		"eol-last": ["error", "always"],
 		"space-before-blocks": ["error", "always"],
 		"prefer-arrow-callback": "error",
-		"eqeqeq": ["warn", "allow-null"]
+		"eqeqeq": ["warn", "allow-null"],
+		"arrow-parens": ["error", "always"],
+		"object-curly-spacing": ["error", "always"]
 	}
 }

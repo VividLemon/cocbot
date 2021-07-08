@@ -1,13 +1,11 @@
-const {clan_tag, coc_api_key} = require('../config/config.json')
-const { Client } = require('clashofclans.js')
-const client = new Client({ token: coc_api_key, timeout: 5000})
+const { clan_tag } = require('../config/config.json')
 
 module.exports = (message, perf) => {
     let msg = ""
 
-    client.clanMembers(clan_tag).then(resp => {
+    global.client.clanMembers(clan_tag).then((resp) => {
         msg = `\`\`\`yaml\n`
-        resp.items.forEach(element => {
+        resp.items.forEach((element) => {
             msg += `Name: ${element.name}, Level: ${element.expLevel}, Role: ${element.role}`
             if(perf >= 1) {
                 msg += `\nDonations given: ${element.donations}, Donations received: ${element.donationsReceieved}`

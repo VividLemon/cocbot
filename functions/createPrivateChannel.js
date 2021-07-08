@@ -1,13 +1,13 @@
-const {prefix} = require('../config/config.json')
+const { prefix } = require('../config/config.json')
 
 module.exports = (reaction, user, bot) => {
     const expireTimeInMinutes = 15
     const member = reaction.message.guild.members.cache.get(user.id)
-    const unauthRole = reaction.message.guild.roles.cache.find(role => role.name === "unauthenticated")
+    const unauthRole = reaction.message.guild.roles.cache.find((role) => role.name === "unauthenticated")
 
     if(!member.roles.cache.has(unauthRole.id)) return
-    if(typeof reaction.message.guild.channels.cache.find(channel => channel.name === `auth-${user.id}`) !== 'undefined') return
-    const everyoneRole = reaction.message.guild.roles.cache.find(role => role.name === "@everyone")
+    if(typeof reaction.message.guild.channels.cache.find((channel) => channel.name === `auth-${user.id}`) !== 'undefined') return
+    const everyoneRole = reaction.message.guild.roles.cache.find((role) => role.name === "@everyone")
 
     reaction.message.guild.channels.create(`auth-${user.id}` ,{
         parent: reaction.message.channel.parentID,

@@ -1,4 +1,4 @@
-module.exports = roleName => {
+module.exports = (roleName) => {
     let discordRole
 
     switch (roleName) {

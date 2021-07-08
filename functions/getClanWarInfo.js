@@ -1,18 +1,18 @@
-const {clan_tag, coc_api_key} = require('../config/config.json')
-const { Client } = require('clashofclans.js')
-const client = new Client({ token: coc_api_key, timeout: 5000})
+const { clan_tag } = require('../config/config.json')
 
 module.exports = (message, perf) => {
     let msg = ""
 
-    client.currentClanWar(clan_tag).then(resp => {
+    global.client.currentClanWar(clan_tag).then((resp) => {
         msg = `\`\`\`yaml\nPhase: ${resp.state}, Player Count: ${resp.teamSize}`
-        if(resp.state !== 'preparation') {
+        if(resp.state === "notInWar") {
+            return message.reply(`You're not currently in a war! (leagues don't count as wars)`)
+        }else if(resp.state !== 'preparation') {
             msg += `\nAttacks Used: ${resp.clan.attacks} out of ${resp.teamSize * 2}`
         }
         if(perf && perf >= 1) {
             msg += `\nMembers:`
-            resp.clan.members.forEach(member => {
+            resp.clan.members.forEach((member) => {
                 msg += `\nName: ${member.name}, th level: ${member.townhallLevel}, position: ${member.mapPosition}`
                 if(resp.state !== 'preparation') {
                     msg += `, attacks used: ${member.opponentAttacks}`
@@ -24,7 +24,7 @@ module.exports = (message, perf) => {
             if(resp.state !== 'preparation') {
                 msg += `\nAttacks Used: ${resp.opponent.attacks} out of ${resp.teamSize * 2}`
             }
-            resp.opponent.members.forEach(member => {
+            resp.opponent.members.forEach((member) => {
                 msg += `\nName: ${member.name}, th level: ${member.townhallLevel}, position: ${member.mapPosition}`
                 if(resp.state !== 'preparation') {
                     msg += `, attacks used: ${member.opponentAttacks}`

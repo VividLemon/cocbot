@@ -1,21 +1,18 @@
-const {clan_tag, coc_api_key} = require('../config/config.json')
-const { Client } = require('clashofclans.js')
+const { clan_tag } = require('../config/config.json')
 const addRole = require('./addRole')
 const convertCoCRoleToDiscord = require('./convertCoCRoleToDiscord')
 const removeRole = require('./removeRole.js')
-const client = new Client({ token: coc_api_key, timeout: 5000})
 const expireTimeInSeconds = 15
 
 module.exports = (message, args = []) => {
     if(args.length === 2) {
         const tag = args[0]
         const token = args[1]
-        // api fetch
         let name
         let clanRole
         let authed = true
 
-        client.player(tag).then(resp => {
+        global.client.player(tag).then((resp) => {
             if(resp.clan.tag !== clan_tag) return message.reply("You don't seem to be in our clan! Join now!")
             name = resp.name
             clanRole = resp.role
@@ -24,7 +21,7 @@ module.exports = (message, args = []) => {
             message.reply("Player tag wasn't found, try again!")
         })
         .then(() => {
-            client.verifyPlayerToken(tag, token).then(resp => {
+            global.client.verifyPlayerToken(tag, token).then((resp) => {
                 if(resp.status === 'ok') {
                     addRole(message, "authenticated")
                     const discordRole = convertCoCRoleToDiscord(clanRole)
@@ -40,8 +37,8 @@ module.exports = (message, args = []) => {
                     removeRole(message, "unauthenticated")
                     message.reply(`Great! You have been verified! This chat will auto close in ${expireTimeInSeconds} seconds`)
                     setTimeout(() => {
-                        if(message.guild.channels.cache.find(channel => channel.name === `auth-${message.author.id}`)) {
-                            message.guild.channels.cache.find(channel => channel.name === `auth-${message.author.id}`).delete()
+                        if(message.guild.channels.cache.find((channel) => channel.name === `auth-${message.author.id}`)) {
+                            message.guild.channels.cache.find((channel) => channel.name === `auth-${message.author.id}`).delete()
                         }else{
                             console.warn(`Channel auth-${message.author.id} was probably already deleted...`)
                         }

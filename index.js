@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const {prefix, token} = require('./config/config.json')
+const { prefix, token, coc_api_key, email, password } = require('./config/config.json')
 const bot = new Discord.Client()
 const firstMessage = require('./functions/firstMessage.js')
 const createPrivateChannel = require('./functions/createPrivateChannel.js')
@@ -7,6 +7,11 @@ const verifyClash = require('./functions/verifyClash.js')
 const getClanWarInfo = require('./functions/getClanWarInfo')
 const getMembersList = require('./functions/getMembersList')
 const donationMessage = require('./functions/donationMessage')
+const { Client } = require('clashofclans.js')
+
+const client = new Client({ keys: [coc_api_key] })
+
+global.client = client
 
 bot.login(token)
 
@@ -23,16 +28,21 @@ bot.once('ready', () => {
     catch{
         console.error("You need to set the default lobby")
     }
+
+    ( async () => {
+        await client.init({ email, password })
+    })
+
 })
 
 bot.on('guildMemberAdd', ( member ) => {
     try{
-        const unauthRoleId = member.guild.roles.cache.find(role => role.name === "unauthenticated").id
+        const unauthRoleId = member.guild.roles.cache.find((role) => role.name === "unauthenticated").id
 
         member.roles.add(unauthRoleId)
     }
     catch{
-        member.guild.channels.cache.filter(chx => chx.type === "text").find(x => x.position === 0).send('There is no unauthenticated role!')
+        member.guild.channels.cache.filter((chx) => chx.type === "text").find((x) => x.position === 0).send('There is no unauthenticated role!')
     }
 })
 
@@ -43,7 +53,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
     }
 })
 
-bot.on('message', async message => {
+bot.on('message', async (message) => {
     if(!message.content.startsWith(prefix) || message.author.bot) return
     const args = message.content.slice(prefix.length).trim().split(/ +/)
     const command = args.shift().toLowerCase()
