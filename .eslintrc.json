@@ -10,6 +10,7 @@
 	"rules": {
 		"semi": ["warn", "never"],
 		"comma-dangle": ["error", "never"],
+		"indent": ["error", "tab", { "MemberExpression": 1 }],
 		"space-before-function-paren": ["error", {
 			"anonymous": "always",
 			"named": "always",
@@ -24,6 +25,7 @@
 		"prefer-arrow-callback": "error",
 		"eqeqeq": ["warn", "allow-null"],
 		"arrow-parens": ["error", "always"],
-		"object-curly-spacing": ["error", "always"]
+		"object-curly-spacing": ["error", "always"],
+		"quotes": ["error", "single", { "allowTemplateLiterals": true }]
 	}
 }
