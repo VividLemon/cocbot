@@ -309,11 +309,12 @@ ci-info@^2.0.0:
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
   integrity sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==
 
-clashofclans.js@^1.5.0:
-  version "1.5.5"
-  resolved "https://registry.yarnpkg.com/clashofclans.js/-/clashofclans.js-1.5.5.tgz#eb1fbdc55d7d758d266c72a073543a9481ec880e"
-  integrity sha512-HKTTjQsLjYbYDgiouPUmuknTrAt9Pikn+V6XRQ8kG3R9BRpEy67a72jPJs04mcMHcNF02WqXtIxp5dptHDx4lw==
+clashofclans.js@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/clashofclans.js/-/clashofclans.js-2.3.0.tgz#2e7b363b09a511ac4deaf21e96f1f39f03a2032a"
+  integrity sha512-rS5JEhC6heVi4zL5o3dU5fJhmaC3YNM7Z2QDhfHBFaNCI/LbMB++cZQBb9XOYBGyhEDv0DLiOgU9ZMQj6WkCqg==
   dependencies:
+    keyv "^4.0.4"
     node-fetch "^2.6.1"
 
 cli-boxes@^2.2.1:
@@ -950,7 +951,7 @@ keyv@^3.0.0:
   dependencies:
     json-buffer "3.0.0"
 
-keyv@^4.0.3:
+keyv@^4.0.3, keyv@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-4.0.4.tgz#f040b236ea2b06ed15ed86fbef8407e1a1c8e376"
   integrity sha512-vqNHbAc8BBsxk+7QBYLW0Y219rWcClspR6WSeoHYKG5mnsSoOH+BL1pWq02DDCVdvvuUny5rkBlzMRzoqc+GIg==
