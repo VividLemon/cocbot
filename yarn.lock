@@ -208,9 +208,9 @@ ci-info@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
 
-clashofclans.js@^2.3.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/clashofclans.js/-/clashofclans.js-2.5.0.tgz#4349b9c08b9105fae16d75dc3a03745f460398a9"
+clashofclans.js@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/clashofclans.js/-/clashofclans.js-2.5.1.tgz#e2ffcac4718d41a9361842251cfaaf2545ea4032"
   dependencies:
     keyv "^4.0.4"
     node-fetch "^2.6.1"
