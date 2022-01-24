@@ -208,12 +208,12 @@ ci-info@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
 
-clashofclans.js@^2.3.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/clashofclans.js/-/clashofclans.js-2.5.0.tgz#4349b9c08b9105fae16d75dc3a03745f460398a9"
+clashofclans.js@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/clashofclans.js/-/clashofclans.js-2.5.2.tgz#2b819dbd65c543da701fc0a651e6ba67a5e482db"
   dependencies:
     keyv "^4.0.4"
-    node-fetch "^2.6.1"
+    node-fetch "^2.6.7"
 
 cli-boxes@^2.2.1:
   version "2.2.1"
@@ -808,9 +808,9 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
 
-node-fetch@^2.6.1:
-  version "2.6.6"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.6.tgz#1751a7c01834e8e1697758732e9efb6eeadfaf89"
+node-fetch@^2.6.1, node-fetch@^2.6.7:
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
   dependencies:
     whatwg-url "^5.0.0"
 
