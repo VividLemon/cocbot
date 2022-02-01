@@ -19,7 +19,7 @@
     "keyv": "^4.0.3"
   },
   "devDependencies": {
-    "eslint": "^8.5.0",
+    "eslint": "^8.8.0",
     "nodemon": "^2.0.10"
   }
 }
