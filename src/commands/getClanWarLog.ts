@@ -7,8 +7,8 @@ import buildTempFile from '../util/buildTempFile'
 
 export default {
   data: new SlashCommandBuilder()
-    .setName('clan-war')
-    .setDescription('Gets the current clan war info')
+    .setName('clan-war-log')
+    .setDescription('Gets the current clan war log')
     .addStringOption((option) =>
       option.setName('clan-tag')
         .setDescription('Allows you to search any clan tag\'s current war. Otherwise server defaults'))
@@ -21,13 +21,13 @@ export default {
       return await interaction.reply({ content: i18n.__('unableToGetServerClanAndOptNotSet'), ephemeral: true })
     }
     const ephemeral = interaction.options.getBoolean('ephemeral') ?? false
-    const info = await cocClient.getCurrentWar(clanTag)
+    const info = await cocClient.getClanWarLog(clanTag)
     if (info == null) {
-      return await interaction.reply({ content: i18n.__('noClanWarInfo'), ephemeral: true })
+      return await interaction.reply({ content: i18n.__('noWarLogInfo', { tag: clanTag }), ephemeral: true })
     }
     const file = await buildTempFile(JSON.stringify(info, null, 2))
     const mFile = new MessageAttachment(file)
-    await interaction.reply({ content: i18n.__('clanWarInfo', { tag: clanTag }), ephemeral, attachments: [mFile] })
+    await interaction.reply({ content: i18n.__('warLogInfo', { tag: clanTag }), ephemeral, attachments: [mFile] })
     unlink(file)
       .catch((error) => {
         console.error({ error, interaction })

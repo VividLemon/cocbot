@@ -50,11 +50,11 @@ Thumbs.db
 *.mov
 *.wmv
 
-# Yarn
-.yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+# ENV
+*.env
+
+# Sqlite
+*.sqlite
+
+# Dockerfile
+Dockerfile

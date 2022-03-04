@@ -1,31 +1,21 @@
 {
-	"extends": "eslint:recommended",
-	"env": {
-		"node": true,
-		"es6": true
-	},
-	"parserOptions": {
-		"ecmaVersion": 2019
-	},
-	"rules": {
-		"semi": ["warn", "never"],
-		"comma-dangle": ["error", "never"],
-		"indent": ["error", "tab", { "MemberExpression": 1 }],
-		"space-before-function-paren": ["error", {
-			"anonymous": "always",
-			"named": "always",
-			"asyncArrow": "always"
-		}],
-		"no-irregular-whitespace": [1],
-		"no-trailing-spaces": [1],
-		"no-multiple-empty-lines": [2, {"max": 1}],
-		"newline-after-var": ["warn"],
-		"eol-last": ["error", "always"],
-		"space-before-blocks": ["error", "always"],
-		"prefer-arrow-callback": "error",
-		"eqeqeq": ["warn", "allow-null"],
-		"arrow-parens": ["error", "always"],
-		"object-curly-spacing": ["error", "always"],
-		"quotes": ["error", "single", { "allowTemplateLiterals": true }]
-	}
+    "root": true,
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "standard"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 13,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "object-shorthand":"error"
+    }
 }
